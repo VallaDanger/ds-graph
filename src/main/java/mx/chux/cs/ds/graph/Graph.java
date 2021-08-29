@@ -2,6 +2,7 @@ package mx.chux.cs.ds.graph;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -97,13 +98,21 @@ public class Graph<E extends Comparable<E>> {
         return x.isAdjacentTo(y) && y.isAdjacentTo(x);
     }
     
-    Node<E> getNode(E value) {
+    public Node<E> getNode(E value) {
         for(Node<E> node : this.nodes) {
             if( node.get().equals(value) ) {
                 return node;
             }
         } 
         return null;
+    }
+    
+    public Collection<Node<E>> getNodes() {
+        return Collections.unmodifiableCollection(this.nodes);
+    }
+    
+    public Collection<Node<E>> getAdjacentNodes(Node<E> node) {
+        return Collections.unmodifiableCollection(node.getAdjacents());
     }
     
     public int sizeOfNodes() {
