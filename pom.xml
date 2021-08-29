@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>mx.chux.cs.ds.graph</groupId>
-    <artifactId>graph</artifactId>
+    <artifactId>ds-graph</artifactId>
     <version>1.0.0</version>
 
     <name>graph</name>
