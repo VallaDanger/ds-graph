@@ -75,14 +75,14 @@ public class Graph<E extends Comparable<E>> {
     
     private List<Node<E>> buildAdjacencies(final Collection<E> adjacents) {
         
-        final List<Node<E>> nodes = new ArrayList<>(adjacents.size());
+        final List<Node<E>> n = new ArrayList<>(adjacents.size());
         
         for( E adjacent : adjacents ) {
             Node<E> node = buildOrGetNode(adjacent);
-            nodes.add(node);
+            n.add(node);
         }
         
-        return nodes;
+        return n;
     }
     
     private Node<E> buildOrGetNode(E value) {
@@ -124,7 +124,8 @@ public class Graph<E extends Comparable<E>> {
     }
     
     public void print() {
-        LOGGER.info(this.toString());
+        final String stringRepresentation = this.toString();
+        LOGGER.info(stringRepresentation);
     }
     
     @Override
@@ -136,9 +137,7 @@ public class Graph<E extends Comparable<E>> {
             builder.append(node).append("\n");
         }
         
-        final String stringRepresentation = builder.toString();
-        
-        return stringRepresentation;
+        return builder.toString();
     }
     
 }

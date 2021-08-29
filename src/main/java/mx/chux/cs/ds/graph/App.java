@@ -9,14 +9,13 @@ public class App {
 
     public static void main(String[] args) {
         
-        Map<String, Collection<String>> data = 
-                new HashMap<String, Collection<String>>(){{
-            put("a", Arrays.asList("b", "c"));
-            put("b", Arrays.asList("c"));
-            put("c", Arrays.asList("d"));
-        }};
+        Map<String, Collection<String>> data = new HashMap<>();
         
-        final Graph<String> graph = new Graph<String>(data);
+        data.put("a", Arrays.asList("b", "c"));
+        data.put("b", Arrays.asList("c"));
+        data.put("c", Arrays.asList("d"));
+        
+        final Graph<String> graph = new Graph<>(data);
         
         graph.print();
         

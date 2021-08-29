@@ -74,9 +74,7 @@ public class Node<E extends Comparable<E>> implements Supplier<E> {
             .append(this.hasBeenVisited()).append("), ");
         }
         
-        final String stringRepresentation = builder.toString();
-        
-        return stringRepresentation;
+        return builder.toString();
     }
     
     @Override
