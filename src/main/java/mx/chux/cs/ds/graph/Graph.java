@@ -78,23 +78,18 @@ public class Graph<E extends Comparable<E>> {
         final List<Node<E>> n = new ArrayList<>(adjacents.size());
         
         for( E adjacent : adjacents ) {
-            Node<E> node = buildOrGetNode(adjacent);
+            Node<E> node = getOrBuildNode(adjacent);
             n.add(node);
         }
         
         return n;
     }
     
-    private Node<E> buildOrGetNode(E value) {
-        
-        Node<E> node = new Node<>(value);
-        
-        int index = this.nodes.indexOf(node);
-        
-        if( index >= 0) {
-            node = this.nodes.get(index);
+    private Node<E> getOrBuildNode(E value) {
+        Node<E> node = getNode(value);
+        if( node == null ) {
+            node = new Node<>(value);
         }
-        
         return node;
     }
     
@@ -103,11 +98,11 @@ public class Graph<E extends Comparable<E>> {
     }
     
     Node<E> getNode(E value) {
-        Node<E> node = new Node<>(value);
-        final int index = this.nodes.indexOf(node);
-        if( index >= 0 ) {
-            return this.nodes.get(index);
-        }
+        for(Node<E> node : this.nodes) {
+            if( node.get().equals(value) ) {
+                return node;
+            }
+        } 
         return null;
     }
     
