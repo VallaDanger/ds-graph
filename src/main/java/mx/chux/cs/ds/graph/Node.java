@@ -67,11 +67,12 @@ public class Node<E extends Comparable<E>> implements Supplier<E> {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         
-        builder.append(value).append(" -> ");
+        builder.append(value).append("(v:")
+        .append(this.hasBeenVisited()).append(") -> ");
         
         for( Node<E> adjacent : adjacents ) {
-            builder.append(adjacent.get()).append("(v: ")
-            .append(this.hasBeenVisited()).append("), ");
+            builder.append(adjacent.get()).append("(v:")
+            .append(adjacent.hasBeenVisited()).append("), ");
         }
         
         return builder.toString();
